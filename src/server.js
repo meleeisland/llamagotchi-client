@@ -13,7 +13,6 @@ app.use(express.static('public'));
 
 // GET /
 app.get('/', function (req, res) {
-	console.log("x");
   res.render('layout', {
     content: ReactDOMServer.renderToString(<Llama />)
   });

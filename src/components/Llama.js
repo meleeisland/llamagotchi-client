@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import SimpleCounter from './SimpleCounter';
+import LoggedLlama from './LoggedLlama';
 
 export default class Llama extends React.Component {
 	 constructor(props) { 
@@ -44,9 +44,7 @@ export default class Llama extends React.Component {
 		</form>
 		)
 	  } else {
-		  return	<div>
-						<p> {this.state.name} : Baah!</p>
-					  </div>
+		  return <LoggedLlama name={this.state.name}  uid={this.state.logged} />
 	  }
   }
 }
