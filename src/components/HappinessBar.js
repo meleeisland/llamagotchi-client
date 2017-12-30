@@ -13,6 +13,9 @@ export default class HappinessBar extends React.Component {
   onChange () {
     this.setState(this.getStateFromStore())
   }
+  componentDidMount () {
+    LlamaStore.onChange = this.onChange
+  }
   render () {
     return <div style={{'width': '250px', 'float': 'left', 'height': '20px', 'border': '1px solid', 'borderRadius': '5px'}} >
       <div style={{'width': this.state.happiness + '%', 'background': 'green', 'float': 'left', 'height': '100%'}} />

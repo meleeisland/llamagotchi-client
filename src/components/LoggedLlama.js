@@ -41,8 +41,8 @@ export default class LoggedLlama extends React.Component {
       <h2>{this.props.name}</h2>
       {llama}
       <HappinessBar />
-      <LlamagotchiMenu uid={this.props.uid} />
-      <LlamaupgradeMenu uid={this.props.uid} />
+      <LlamagotchiMenu/>
+      <LlamaupgradeMenu/>
     </div>
   }
 }
