@@ -20,20 +20,17 @@ export default class LoggedLlama extends React.Component {
     this.setState(this.getStateFromStore())
   }
   componentDidMount () {
-// when the assignment store says its data changed, we update
     LlamaStore.onChange = this.onChange
   }
   refresh (e) {
     axios.get('http://localhost:8080/keepalive/?uid=' + this.props.uid).then((r) => { if (r.error) console.log(false) })
-    axios.get('http://localhost:8080/ghappy/?uid=' + this.props.uid).then(
-(response) => {
-  if (response.error) console.log(false)
-  if (response.data.data !== this.state.happiness) {
-    LlamaStore.setHappiness(response.data.data)
-  }
-})
-    var self = this
-    setTimeout(function () { self.refresh(e) }, 1000)
+    axios.get('http://localhost:8080/ghappy/?uid=' + this.props.uid).then((response) => {
+      if (response.error) console.log(false)
+      if (response.data.data !== this.state.happiness) {
+        LlamaStore.setHappiness(response.data.data)
+      }
+    })
+    setTimeout( () => { this.refresh(e) }, 1000)
   }
 
   render () {

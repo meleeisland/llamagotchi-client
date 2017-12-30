@@ -13,9 +13,9 @@ export default class MenuItem extends React.Component {
   }
   render () {
     if (this.state.menuOpen) {
-      let actions = this.props.actions.map(
-(item) => <li key={this.props.uid + '-' + item.name} onClick={item.onClick}>{item.name}</li>
-)
+      let actions = this.props.actions.map((item) => {
+        return <li key={this.props.uid + '-' + item.name} onClick={item.onClick}>{item.name}</li>
+      })
       return <div><span onClick={this.toggle}>{this.props.title}</span>
         <ul>
           {actions}

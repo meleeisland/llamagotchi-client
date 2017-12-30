@@ -13,25 +13,21 @@ export default class Llama extends React.Component {
     e.preventDefault()
     let u = (e.target.querySelector('input[name="username"]'))
     let p = (e.target.querySelector('input[name="password"]'))
-    console.log('login ' + u.value + ' ' + p.value)
     axios.post('http://localhost:8080/login/', {
       type: 'login',
       username: u.value,
       password: p.value
-    }).then(
-(response) => {
-  if (response.error) console.log(false)
-  console.log(response.data)
-  let type = response.data.type
-  if (type === 'new') {
-    console.log('new game')
-    type = 'load'
-  }
-  if (type === 'load') {
-    console.log('logged')
-    this.setState({ logged: response.data.uid, name: response.data.data })
-  }
-})
+    }).then((response) => {
+      if (response.error) console.log(false)
+      let type = response.data.type
+      console.log(response)
+      if (type === 'new') {
+        type = 'load'
+      }
+      if (type === 'load') {
+        this.setState({ logged: response.data.uid, name: response.data.data })
+      }
+    })
   }
   render () {
     if (this.state.logged === false) {
