@@ -6,6 +6,10 @@ export var LlamaActions = {
   },
   setHappiness: function (h) {
     LlamaStore.setHappiness(h)
+  },
+  login: function (id, name) {
+    LlamaStore.setID(id, false)
+    LlamaStore.setName(name)
   }
 
 }

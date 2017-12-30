@@ -1,14 +1,26 @@
 import React from 'react'
 import axios from 'axios'
 import LoggedLlama from './LoggedLlama'
+import {LlamaActions} from '../modules/LlamaActions'
+import {LlamaStore} from '../modules/LlamaStore'
 
 export default class Llama extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {logged: false, name: ''}
+    this.state = this.getStateFromStore()
+    this.onChange = this.onChange.bind(this)
     this.login = this.login.bind(this)
   }
 
+  getStateFromStore () {
+    return LlamaStore.getState()
+  }
+  onChange () {
+    this.setState(this.getStateFromStore())
+  }
+  componentDidMount () {
+    LlamaStore.onChange = this.onChange
+  }
   login (e) {
     e.preventDefault()
     let u = (e.target.querySelector('input[name="username"]'))
@@ -25,12 +37,12 @@ export default class Llama extends React.Component {
         type = 'load'
       }
       if (type === 'load') {
-        this.setState({ logged: response.data.uid, name: response.data.data })
+        LlamaActions.login(response.data.uid, response.data.data)
       }
     })
   }
   render () {
-    if (this.state.logged === false) {
+    if (this.state.id === false) {
       return (
         <form onSubmit={this.login}>
           <input type='text' name='username' />
@@ -39,7 +51,7 @@ export default class Llama extends React.Component {
         </form>
       )
     } else {
-      return <LoggedLlama name={this.state.name} uid={this.state.logged} />
+      return <LoggedLlama name={this.state.name} uid={this.state.id} />
     }
   }
 }

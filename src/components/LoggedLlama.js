@@ -30,7 +30,7 @@ export default class LoggedLlama extends React.Component {
         LlamaStore.setHappiness(response.data.data)
       }
     })
-    setTimeout( () => { this.refresh(e) }, 1000)
+    setTimeout(() => { this.refresh(e) }, 1000)
   }
 
   render () {
@@ -40,7 +40,7 @@ export default class LoggedLlama extends React.Component {
     return <div>
       <h2>{this.props.name}</h2>
       {llama}
-      <HappinessBar happiness={this.state.happiness} />
+      <HappinessBar />
       <LlamagotchiMenu uid={this.props.uid} />
       <LlamaupgradeMenu uid={this.props.uid} />
     </div>
