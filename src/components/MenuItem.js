@@ -24,7 +24,7 @@ export default class MenuItem extends React.Component {
 						</ul>
 					</div>
 		} else {
-			return	<div onClick={this.toggle}>{item.name}</div>
+			return	<div onClick={this.toggle}>{this.props.title}</div>
 		}
 	}
 	

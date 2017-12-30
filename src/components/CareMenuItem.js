@@ -1,5 +1,6 @@
 import React from 'react';
 import MenuItem from './MenuItem';
+import {LlamaActions} from '../modules/LlamaActions';
 import axios from 'axios';
 
 
@@ -19,6 +20,7 @@ export default class CareMenuItem extends React.Component {
 			(response) =>  {
 				if (response.error) console.log(false);
 				console.log(response.data)
+				LlamaActions.say("baah!");
 			}) ;
 	}
 	render() {
