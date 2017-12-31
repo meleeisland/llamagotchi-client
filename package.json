@@ -19,11 +19,12 @@
   "author": "Davide Bizzi",
   "license": "BSD",
   "dependencies": {
-    "axios": "latest",
+    "axios": "0.17.1",
+    "material-ui": "0.20.0",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
-    "react": "^0.14.2",
-    "react-dom": "^0.14.2"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   },
   "devDependencies": {
 	"npm-watch": "latest",

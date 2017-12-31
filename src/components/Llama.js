@@ -3,6 +3,7 @@ import axios from 'axios'
 import LoggedLlama from './LoggedLlama'
 import {LlamaActions} from '../modules/LlamaActions'
 import {LlamaStore} from '../modules/LlamaStore'
+import {Card, CardActions, CardMedia, CardTitle, CardText} from 'material-ui/Card'
 
 export default class Llama extends React.Component {
   constructor (props) {
@@ -43,12 +44,21 @@ export default class Llama extends React.Component {
   }
   render () {
     if (this.state.id === false) {
-      return (
+      return (<Card>
+        <CardMedia overlay={<CardTitle title='Login' subtitle='logga al lama' />}>
+          <img src='http://via.placeholder.com/750x350' />
+        </CardMedia>
         <form onSubmit={this.login}>
-          <input type='text' name='username' />
-          <input type='password' name='password' />
-          <input type='submit' />
+          <CardText>
+            <input type='text' name='username' />
+            <input type='password' name='password' />
+          </CardText>
+          <CardActions>
+            <input className='waves-effect waves-light btn' type='submit' />
+          </CardActions>
         </form>
+      </Card>
+
       )
     } else {
       return <LoggedLlama name={this.state.name} />

@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Llama from './components/Llama'
 import express from 'express'
 
@@ -17,7 +18,7 @@ app.get('/', function (req, res) {
   global.navigator.userAgent = req.headers['user-agent'] || 'all'
 
   res.render('layout', {
-    content: ReactDOMServer.renderToString(<Llama />)
+    content: ReactDOMServer.renderToString(<MuiThemeProvider><Llama /></MuiThemeProvider>)
   })
 })
 
