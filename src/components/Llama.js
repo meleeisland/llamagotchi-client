@@ -1,8 +1,7 @@
 import React from 'react'
-import axios from 'axios'
 import LoggedLlama from './LoggedLlama'
-import {LlamaActions} from '../modules/LlamaActions'
 import {LlamaStore} from '../modules/LlamaStore'
+import {LlamaRequests} from '../modules/LlamaRequests'
 import {Card, CardActions, CardMedia, CardTitle, CardText} from 'material-ui/Card'
 
 export default class Llama extends React.Component {
@@ -26,21 +25,7 @@ export default class Llama extends React.Component {
     e.preventDefault()
     let u = (e.target.querySelector('input[name="username"]'))
     let p = (e.target.querySelector('input[name="password"]'))
-    axios.post('http://localhost:8080/login/', {
-      type: 'login',
-      username: u.value,
-      password: p.value
-    }).then((response) => {
-      if (response.error) console.log(false)
-      let type = response.data.type
-      console.log(response)
-      if (type === 'new') {
-        type = 'load'
-      }
-      if (type === 'load') {
-        LlamaActions.login(response.data.uid, response.data.data)
-      }
-    })
+    LlamaRequests.login(u.value,p.value);
   }
   render () {
     if (this.state.id === false) {

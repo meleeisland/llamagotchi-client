@@ -1,7 +1,6 @@
 import React from 'react'
-import {LlamaActions} from '../modules/LlamaActions'
+import {LlamaRequests} from '../modules/LlamaRequests'
 import MenuItem from './MenuItem'
-import axios from 'axios'
 
 export default class CareMenuItem extends React.Component {
   constructor (props) {
@@ -9,14 +8,7 @@ export default class CareMenuItem extends React.Component {
     this.pet = this.pet.bind(this)
   }
   pet (e) {
-    let url = 'http://localhost:8080/pet/'
-    axios.post(url, {
-      uid: this.props.uid,
-      type: 'pet'
-    }).then((response) => {
-      if (response.error) console.log(false)
-      LlamaActions.say('baah!')
-    })
+	LlamaRequests.pet()
   }
   render () {
     let actions = ([ { onClick: this.pet, name: 'PET' } ]);

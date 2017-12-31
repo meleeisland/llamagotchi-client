@@ -1,10 +1,10 @@
 import React from 'react'
-import axios from 'axios'
 import HappinessBar from './HappinessBar'
 import LlamagotchiMenu from './LlamagotchiMenu'
 import LlamaupgradeMenu from './LlamaupgradeMenu'
 import {List} from 'material-ui/List'
 import {LlamaStore} from '../modules/LlamaStore'
+import {LlamaRequests} from '../modules/LlamaRequests'
 import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card'
 
 export default class LoggedLlama extends React.Component {
@@ -25,13 +25,8 @@ export default class LoggedLlama extends React.Component {
     LlamaStore.onChange = this.onChange
   }
   refresh (e) {
-    axios.get('http://localhost:8080/keepalive/?uid=' + this.state.id).then((r) => { if (r.error) console.log(false) })
-    axios.get('http://localhost:8080/ghappy/?uid=' + this.state.id).then((response) => {
-      if (response.error) console.log(false)
-      if (response.data.data !== this.state.happiness) {
-        LlamaStore.setHappiness(response.data.data)
-      }
-    })
+	LlamaRequests.keepalive();
+	LlamaRequests.getHappiness();
     setTimeout(() => { this.refresh(e) }, 1000)
   }
 
