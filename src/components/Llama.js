@@ -51,7 +51,7 @@ export default class Llama extends React.Component {
         </form>
       )
     } else {
-      return <LoggedLlama name={this.state.name}  />
+      return <LoggedLlama name={this.state.name} />
     }
   }
 }

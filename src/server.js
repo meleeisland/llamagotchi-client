@@ -13,6 +13,9 @@ app.use(express.static('public'))
 
 // GET /
 app.get('/', function (req, res) {
+  global.navigator = global.navigator || {}
+  global.navigator.userAgent = req.headers['user-agent'] || 'all'
+
   res.render('layout', {
     content: ReactDOMServer.renderToString(<Llama />)
   })
