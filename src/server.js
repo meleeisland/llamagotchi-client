@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Llama from './components/Llama'
 import express from 'express'
 
@@ -14,7 +15,7 @@ app.use(express.static('public'))
 // GET /
 app.get('/', function (req, res) {
   res.render('layout', {
-    content: ReactDOMServer.renderToString(<Llama />)
+    content: ReactDOMServer.renderToString(<MuiThemeProvider><Llama /></MuiThemeProvider>)
   })
 })
 
