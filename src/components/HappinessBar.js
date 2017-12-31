@@ -18,11 +18,13 @@ export default class HappinessBar extends React.Component {
     LlamaStore.onChange = this.onChange
   }
   render () {
+    let h = parseInt(this.state.happiness)
+    if (isNaN(h)) h = 0
     return <div style={{'position': 'relative'}}>
       <i style={{'position': 'absolute', 'left': '8px', 'top': '8px'}} className='material-icons'>child_care</i>
       <CircularProgress
         mode='determinate'
-        value={parseInt(this.state.happiness)}
+        value={h}
         />
     </div>
   }

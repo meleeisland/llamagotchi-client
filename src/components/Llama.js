@@ -25,7 +25,7 @@ export default class Llama extends React.Component {
     e.preventDefault()
     let u = (e.target.querySelector('input[name="username"]'))
     let p = (e.target.querySelector('input[name="password"]'))
-    LlamaRequests.login(u.value,p.value);
+    LlamaRequests.login(u.value, p.value)
   }
   render () {
     if (this.state.id === false) {

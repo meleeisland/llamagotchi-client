@@ -25,8 +25,8 @@ export default class LoggedLlama extends React.Component {
     LlamaStore.onChange = this.onChange
   }
   refresh (e) {
-	LlamaRequests.keepalive();
-	LlamaRequests.getHappiness();
+    LlamaRequests.keepalive()
+    LlamaRequests.getHappiness()
     setTimeout(() => { this.refresh(e) }, 1000)
   }
 

@@ -18,6 +18,7 @@ RUN npm install
 
 # Copy files
 COPY ./public ./public
+COPY ./.env ./.env
 COPY ./run.sh ./run.sh
 
 RUN chmod +x run.sh
