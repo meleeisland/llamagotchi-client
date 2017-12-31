@@ -18,8 +18,6 @@ export default class LlamagotchiMenu extends React.Component {
     LlamaStore.onChange = this.onChange
   }
   render () {
-    return <div>
-      <CareMenuItem uid={this.state.id} />
-    </div>
+    return <CareMenuItem uid={this.state.id} />
   }
 }

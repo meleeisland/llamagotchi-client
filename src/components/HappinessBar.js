@@ -1,5 +1,6 @@
 import React from 'react'
 import {LlamaStore} from '../modules/LlamaStore'
+import CircularProgress from 'material-ui/CircularProgress'
 
 export default class HappinessBar extends React.Component {
   constructor (props) {
@@ -17,8 +18,12 @@ export default class HappinessBar extends React.Component {
     LlamaStore.onChange = this.onChange
   }
   render () {
-    return <div style={{'width': '250px', 'float': 'left', 'height': '20px', 'border': '1px solid', 'borderRadius': '5px'}} >
-      <div style={{'width': this.state.happiness + '%', 'background': 'green', 'float': 'left', 'height': '100%'}} />
+    return <div style={{'position': 'relative'}}>
+      <i style={{'position': 'absolute', 'left': '8px', 'top': '8px'}} className='material-icons'>child_care</i>
+      <CircularProgress
+        mode='determinate'
+        value={parseInt(this.state.happiness)}
+        />
     </div>
   }
 }

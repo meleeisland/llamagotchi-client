@@ -1,6 +1,7 @@
 import React from 'react'
-import MenuItem from './MenuItem'
 import {LlamaActions} from '../modules/LlamaActions'
+import Divider from 'material-ui/Divider'
+import {ListItem} from 'material-ui/List'
 import axios from 'axios'
 
 export default class CareMenuItem extends React.Component {
@@ -19,7 +20,11 @@ export default class CareMenuItem extends React.Component {
     })
   }
   render () {
-    let actions = [ { onClick: this.pet, name: 'PET' } ]
-    return <MenuItem actions={actions} title='Care' uid={this.props.uid} />
+    let actions = ([ { onClick: this.pet, name: 'PET' } ])
+    return <ListItem primaryText='Care' nestedItems={actions.map((item, i) => {
+      if (item.name === 'divider') return <Divider key={'div-' + i} />
+      if (item.icon !== undefined) return <ListItem onClick={item.onClick} key={'el-ico-' + i} primaryText={item.name} />
+      return <ListItem onClick={item.onClick} key={'el-' + i} primaryText={item.name} />
+    })} />
   }
 }

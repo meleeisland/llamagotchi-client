@@ -3,7 +3,9 @@ import axios from 'axios'
 import HappinessBar from './HappinessBar'
 import LlamagotchiMenu from './LlamagotchiMenu'
 import LlamaupgradeMenu from './LlamaupgradeMenu'
+import {List} from 'material-ui/List'
 import {LlamaStore} from '../modules/LlamaStore'
+import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card'
 
 export default class LoggedLlama extends React.Component {
   constructor (props) {
@@ -35,14 +37,22 @@ export default class LoggedLlama extends React.Component {
 
   render () {
     let llama = []
-    if (this.state.msg !== '') llama.push(<div key='say' style={{'width': '100px', 'position': 'absolute', 'top': '12.5%', 'left': '14%'}}><img style={{'width': '100%'}}src='/img/balloon.png' /><span style={{'position': 'absolute', 'left': '25%', 'top': '25%'}}>{this.state.msg}</span></div>)
-    llama.push(<img key='llama' style={{'marginLeft': '110px'}} src='/img/llama.png' />)
-    return <div>
-      <h2>{this.props.name}</h2>
-      {llama}
-      <HappinessBar />
-      <LlamagotchiMenu/>
-      <LlamaupgradeMenu/>
+    if (this.state.msg !== '') llama.push(<div key='say' style={{'width': '100px', 'position': 'absolute', 'top': '0', 'left': '60%'}}><img style={{'width': '100%'}}src='/img/balloon.png' /><span style={{'position': 'absolute', 'left': '25%', 'top': '25%'}}>{this.state.msg}</span></div>)
+    llama.push(<img style={{'position': 'relative', 'left': '80%'}} key='llama' src='/img/llama.png' />)
+    return <div className='col s12'>
+      <Card>
+        <CardTitle title={this.props.name} subtitle='baaah!' />
+        <HappinessBar />
+        <CardText style={{'position': 'relative'}}>
+          {llama}
+        </CardText>
+        <CardActions>
+          <List>
+            <LlamagotchiMenu />
+            <LlamaupgradeMenu />
+          </List>
+        </CardActions>
+      </Card>
     </div>
   }
 }
