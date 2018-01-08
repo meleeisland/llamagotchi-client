@@ -2,6 +2,7 @@ import React from 'react'
 import HappinessBar from './HappinessBar'
 import LlamagotchiMenu from './LlamagotchiMenu'
 import LlamaupgradeMenu from './LlamaupgradeMenu'
+import PropTypes from 'prop-types'
 import {List} from 'material-ui/List'
 import {LlamaStore} from '../modules/LlamaStore'
 import {LlamaRequests} from '../modules/LlamaRequests'
@@ -50,4 +51,8 @@ export default class LoggedLlama extends React.Component {
       </Card>
     </div>
   }
+}
+
+LoggedLlama.propTypes = {
+  name: PropTypes.string.isRequired
 }

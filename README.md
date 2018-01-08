@@ -1,5 +1,8 @@
 # llamagotchi-client
 
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/standard/standard)
+[![DeepScan Grade](https://deepscan.io/api/projects/1640/branches/6205/badge/grade.svg)](https://deepscan.io/dashboard/#view=project&pid=1640&bid=6205)
+
 Llamagotchi client è un server http node.js che espone un interfaccia web per il client del llamagotchi
 
 - per costruire l'immagine del server:
