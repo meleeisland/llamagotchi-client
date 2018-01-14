@@ -22,6 +22,14 @@ app.get('/', function (req, res) {
   })
 })
 
+// REGISTER
+app.get('/register', function (req, res) {
+  global.navigator = global.navigator || {}
+  global.navigator.userAgent = req.headers['user-agent'] || 'all'
+
+  res.render('register')
+})
+
 // 404
 app.get('*', function (req, res) {
   global.navigator = global.navigator || {}
