@@ -22,6 +22,14 @@ app.get('/', function (req, res) {
   })
 })
 
+// 404
+app.get('*', function (req, res) {
+  global.navigator = global.navigator || {}
+  global.navigator.userAgent = req.headers['user-agent'] || 'all'
+
+  res.render('404')
+})
+
 // Start server
 let server = app.listen(1337, function () {
   let host = server.address().address
