@@ -1,6 +1,7 @@
 export var LlamaStore = {
 
   _state: {
+    pageTitle: 'Title',
     msg: '',
     happiness: 0,
     id: false,
@@ -12,6 +13,10 @@ export var LlamaStore = {
 
   setMsg: function (msg) {
     this._state.msg = msg
+    this.onChange()
+  },
+  setPageTitle: function (title) {
+    this._state.pageTitle = title
     this.onChange()
   },
 

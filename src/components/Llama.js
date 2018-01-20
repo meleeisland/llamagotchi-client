@@ -21,6 +21,9 @@ export default class Llama extends React.Component {
   componentDidMount () {
     LlamaStore.onChange = this.onChange
   }
+  componentWillMount () {
+    LlamaStore.setPageTitle('Login')
+  }
   login (e) {
     e.preventDefault()
     let u = (e.target.querySelector('input[name="username"]'))

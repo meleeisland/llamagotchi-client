@@ -25,7 +25,7 @@ export default class HappinessBar extends React.Component {
       <CircularProgress
         mode='determinate'
         value={h}
-        />
+      />
     </div>
   }
 }
