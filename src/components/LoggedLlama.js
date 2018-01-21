@@ -16,9 +16,6 @@ export default class LoggedLlama extends React.Component {
     this.onChange = this.onChange.bind(this)
     this.refresh()
   }
-  getStateFromStore () {
-    return LlamaStore.getState()
-  }
   onChange () {
     this.setState(this.getStateFromStore())
   }

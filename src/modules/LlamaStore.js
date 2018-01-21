@@ -15,10 +15,6 @@ export var LlamaStore = {
     this._state.msg = msg
     this.onChange()
   },
-  setPageTitle: function (title) {
-    this._state.pageTitle = title
-    this.onChange()
-  },
 
   setID: function (id, trigger = true) {
     this._state.id = id
