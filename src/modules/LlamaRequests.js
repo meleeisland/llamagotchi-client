@@ -56,7 +56,7 @@ export var LlamaRequests = {
       email: e
     }).then((response) => {
       if (response.error) console.log(false)
-      LlamaRequests.login(u,p)
+      LlamaActions.moveToPage('/', 'Registered')
     })
   }
 }

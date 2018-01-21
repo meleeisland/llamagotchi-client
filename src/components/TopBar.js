@@ -5,14 +5,15 @@ import AvGames from 'material-ui/svg-icons/av/games'
 import IconMenu from 'material-ui/IconMenu'
 import MenuItem from 'material-ui/MenuItem'
 import PropTypes from 'prop-types'
+import {LlamaActions} from '../modules/LlamaActions'
 
 function goHome () {
   console.log('home')
-  window.location.replace('/')
+  LlamaActions.moveToPage('/', 'Home')
 }
 function goRegister () {
   console.log('register')
-  window.location.replace('/register')
+  LlamaActions.moveToPage('/register', 'Register')
 }
 
 export default class TopBar extends React.Component {
