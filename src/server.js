@@ -1,7 +1,3 @@
-import React from 'react'
-import ReactDOMServer from 'react-dom/server'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import Llama from './components/Llama'
 import express from 'express'
 
 let app = express()
@@ -17,9 +13,23 @@ app.get('/', function (req, res) {
   global.navigator = global.navigator || {}
   global.navigator.userAgent = req.headers['user-agent'] || 'all'
 
-  res.render('layout', {
-    content: ReactDOMServer.renderToString(<MuiThemeProvider><Llama /></MuiThemeProvider>)
-  })
+  res.render('layout')
+})
+
+// REGISTER
+app.get('/register', function (req, res) {
+  global.navigator = global.navigator || {}
+  global.navigator.userAgent = req.headers['user-agent'] || 'all'
+
+  res.render('register')
+})
+
+// 404
+app.get('*', function (req, res) {
+  global.navigator = global.navigator || {}
+  global.navigator.userAgent = req.headers['user-agent'] || 'all'
+
+  res.render('404')
 })
 
 // Start server

@@ -47,5 +47,16 @@ export var LlamaRequests = {
         LlamaActions.login(response.data.uid, response.data.data)
       }
     })
+  },
+  register: function (u, p, e) {
+    axios.post(this.baseUrl() + '/register/', {
+      type: 'register',
+      username: u,
+      password: p,
+      email: e
+    }).then((response) => {
+      if (response.error) console.log(false)
+      LlamaActions.moveToPage('/', 'Registered')
+    })
   }
 }

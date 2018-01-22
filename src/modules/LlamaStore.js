@@ -1,6 +1,7 @@
 export var LlamaStore = {
 
   _state: {
+    pageTitle: 'Title',
     msg: '',
     happiness: 0,
     id: false,
